@@ -1,14 +1,14 @@
+<div class="inner">
 <a class="blog-title" href="/">{{ .Site.Title }}</a>
 {{ with .Site.Menus.main }}
 <nav class="blog-menu">
-  <ul>
-    {{ range . }}
-      {{ if .Page.Params.redirect_url }}
-        <li><a class="page-link {{ .Name }}" href="{{ .Page.Params.redirect_url }}">{{ .Name }}</a></li>
-      {{ else }}
-      <li><a class="page-link {{ .Name }}" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a></li>
-      {{ end }}
+  {{ range . }}
+    {{ if .Page.Params.redirect_url }}
+      <a class="page-link {{ .Name }}" href="{{ .Page.Params.redirect_url }}">{{ .Name }}</a>
+    {{ else }}
+    <a class="page-link {{ .Name }}" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
     {{ end }}
-  </ul>
+  {{ end }}
 </nav>
 {{ end }}
+</div>
