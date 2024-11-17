@@ -534,10 +534,9 @@ input:disabled, textarea:disabled {
           "posts"
           "sidebar";
       grid-template-columns: 1fr;
-      padding: 0px 20px;
   }
   .blog-container, .blog-header {
-    padding: 20px 0;
+    padding: 20px;
   }
 
   .post-title, .post-header-meta .p-name {
