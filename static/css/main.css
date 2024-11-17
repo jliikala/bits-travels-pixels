@@ -183,8 +183,6 @@ article ul li {
 .blog-header a {
   color: inherit;
   text-decoration: none;
-  font-size: 15px;
-  font-weight: normal;
   line-height: 1;
   text-decoration: none;
   text-transform: uppercase;
@@ -195,6 +193,8 @@ article ul li {
 .blog-menu {
   display: flex;
   gap: 5px;
+  font-size: 15px;
+  font-weight: normal;
 }
 
 .blog-title {
