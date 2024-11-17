@@ -6,7 +6,7 @@
   --btn-background: #e8e8e8;
   --post-bg: white;
   --font-family: "-apple-system",BlinkMacSystemFont,"helvetica neue",Helvetica,Arial,sans-serif;
-  --font-family-serif: Georgia, "Times New Roman", "Palatino Linotype" "Book Antiqua", "Garamond", serif;
+  --font-family-serif: "A Writer Quattro V", Georgia, "Times New Roman", "Palatino Linotype" "Book Antiqua", "Garamond", serif;
   --font-family-mono: "JetBrains Mono", "Fira Code", "Consolas", "Liberation Mono", "Menlo", "Courier New", monospace;
   --spacing: 1.5rem;
   --border-color: #cacaca;
@@ -362,6 +362,9 @@ div.sidebar-partial:last-of-type, div.post-preview:last-of-type {
 
 .sidebar-partial h3 {
   margin-top: 0;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 
 .archive-categories {
@@ -378,7 +381,7 @@ div.sidebar-partial:last-of-type, div.post-preview:last-of-type {
 }
 
 .post-date.u-url {
-  font-family: "CartridgeRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Cartridge", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: normal;
   line-height: 1;
@@ -423,10 +426,10 @@ a.post-date:hover::after {
 }
 
 .post-title, .post-header-meta .p-name {
-  margin: 0 0 10px 0;
-  font-family: "Cartridge", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0 0 30px 0;
+  font-family: "Cartridge Rough", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 64px;
-  font-weight: bold;
+  font-weight: 900;
   letter-spacing: -.015em;
   line-height: .95;
   text-transform: uppercase;
