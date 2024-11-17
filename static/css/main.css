@@ -2,7 +2,7 @@
   --text: #010101;
   --link: var(--text);
   --link-visited: #3d3d3d;
-  --background-color: #f7f7f7;
+  --background-color: hsl(100, 15%, 90%);
   --btn-background: #e8e8e8;
   --post-bg: white;
   --font-family: "-apple-system",BlinkMacSystemFont,"helvetica neue",Helvetica,Arial,sans-serif;
@@ -203,8 +203,8 @@ article ul li {
 .main-content {
   display: grid;
   grid-template-areas:
-      "sidebar posts";
-  grid-template-columns: 1fr 2fr;
+      "posts sidebar";
+  grid-template-columns: 2fr 1fr;
   gap: 3rem;
   grid-area: content;
   align-items: flex-start;
