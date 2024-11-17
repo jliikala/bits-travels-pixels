@@ -18,8 +18,8 @@
           {{ partial "sidebar.html" . }}
         </aside>
       </div>
-      {{ partial "footer.html" . }}
     </div>
+    {{ partial "footer.html" . }}
     {{ range .Site.Params.plugins_js }}
     <script src="{{ . }}"></script>
     {{ end }}
