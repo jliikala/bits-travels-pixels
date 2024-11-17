@@ -1,0 +1,61 @@
+
+<div class="sidebar-partial sidebar-bio">
+  {{ if templates.Exists "partials/microhook-sidebar-bio.html" }}
+    {{ partial "microhook-sidebar-bio.html" . }}
+  {{ else }}
+    <a href="/"><img src="{{ if .Site.Params.itunes_cover }}{{ .Site.Params.itunes_cover }}{{ else }}{{ .Site.Author.avatar }}{{ end }}" alt="{{ .Site.Title }} Profile Photo" class="profile-photo u-photo"></a>
+    <h1 class="site-title"><a href="/">{{ .Site.Title }}</a></h1>
+    {{ .Site.Params.itunes_description | safeHTML }}
+  {{ end }}
+</div>
+<div class="sidebar-partial sidebar-subscribe">
+  {{ if templates.Exists "partials/microhook-sidebar-subscribe.html" }}
+    {{ partial "microhook-sidebar-subscribe.html" . }}
+  {{ else }}
+    {{ if .Params.has_newsletters }}
+    <h3>Subscribe to email updates for this blog</h3>
+    <form method="POST" action="https://micro.blog/users/subscribe/{{ .Site.Params.newsletterId }}">
+      <input type="text" name="email" size="30" placeholder="Your email address" />
+      <input type="submit" value="Subscribe" />
+    </form>
+    <p>You can also subscribe <a href="{{ .Site.RSSLink }}">via RSS feed</a>.</p>
+    {{ else }}
+      <span>Subscribe to this blog <a href="{{ .Site.RSSLink }}">via RSS feed</a>.</span>
+    {{ end }}
+  {{ end }}
+</div>
+<div class="sidebar-partial sidebar-navigation">
+  {{ with .Site.Menus.main }}
+  <h3>On this blog</h3>
+  <nav class="blog-menu">
+    <ul>
+      {{ range . }}
+        {{ if .Page.Params.redirect_url }}
+          <li><a class="page-link {{ .Name }}" href="{{ .Page.Params.redirect_url }}">{{ .Name }}</a></li>
+        {{ else }}
+        <li><a class="page-link {{ .Name }}" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a></li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </nav>
+  {{ end }}
+  {{ with ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
+  <div class="archive-categories">
+    <h3>Categories</h3>
+    <nav class="category-menu">
+      <ul>
+        {{ range . }}
+          {{ $categoryName := .Title }}
+          {{ $postCount := len (where $.Site.RegularPages "Params.categories" "intersect" (slice $categoryName)) }}
+          {{ if gt $postCount 0 }}
+            <li>
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+              ({{ $postCount }})
+            </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+  {{ end }}
+</div>
