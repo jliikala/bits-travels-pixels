@@ -316,14 +316,14 @@ input[type="text"] {
   color: var(--text);
 }
 
-.sidebar-partial form {
+.subscribe-form {
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.sidebar-partial form input {
+.subscribe-form input {
   width: 100%;
   max-width: 100%;
 }
@@ -368,17 +368,13 @@ div.sidebar-partial:last-of-type, div.post-preview:last-of-type {
   margin-top: 2rem;
 }
 
-.sidebar-partial .archive-categories a {
-  text-decoration: none !important;
-}
-
 /* Post list */
 .post-title.p-name a, .post-date.u-url {
   text-decoration: none;
 }
 
 .post-date.u-url {
-  font-family: "CartridgeRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Cartridge", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: normal;
   line-height: 1;
