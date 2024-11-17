@@ -470,10 +470,11 @@ a.post-date:hover::after {
 .microblog_conversation::before {
   content: 'Replies';
   font-weight: bold;
-  font-size: 19px;
   line-height: 28px;
   padding-bottom: 1rem;
   display: block;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 .microblog_post {
   margin-bottom: 2rem;
