@@ -52,6 +52,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeLegibility;
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -167,6 +168,7 @@ article ul li {
 .blog-header {
   background-color: #fff;
   width: 100%;
+  font-family: "Cartridge", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .blog-header .inner {
@@ -181,7 +183,6 @@ article ul li {
 .blog-header a {
   color: inherit;
   text-decoration: none;
-  font-family: "CartridgeRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
   font-weight: normal;
   line-height: 1;
@@ -198,9 +199,8 @@ article ul li {
 
 .blog-title {
   font-size: 24px;
-  font-family: "Cartridge";
   text-transform: uppercase;
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 .blog-container {
