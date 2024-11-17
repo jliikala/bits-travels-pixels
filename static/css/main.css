@@ -337,7 +337,7 @@ input[type="text"] {
   color: var(--text);
 }
 
-.sidebar-partial form {
+.subscribe-form {
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
