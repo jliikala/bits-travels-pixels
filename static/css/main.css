@@ -3,7 +3,6 @@
   --link: var(--text);
   --link-visited: #3d3d3d;
   --background-color: hsl(100, 15%, 90%);
-  --btn-background: #e8e8e8;
   --post-bg: white;
   --font-family: "-apple-system",BlinkMacSystemFont,"helvetica neue",Helvetica,Arial,sans-serif;
   --font-family-serif: "iA Writer Quattro V", Georgia, "Times New Roman", "Palatino Linotype" "Book Antiqua", "Garamond", serif;
@@ -360,7 +359,7 @@ div.sidebar-partial:last-of-type, div.post-preview:last-of-type {
   margin-top: 0;
   font-size: 20px;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing);
 }
 
 .archive-categories {
