@@ -423,9 +423,9 @@ a.post-date:hover::after {
 
 .post-title {
   margin: 0 0 10px 0;
-  font-family: "VaultAlarm", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Cartridge", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 64px;
-  font-weight: normal;
+  font-weight: bold;
   letter-spacing: -.015em;
   line-height: .95;
   text-transform: uppercase;
