@@ -84,9 +84,10 @@ a:not([class]):hover {
 .e-content.with-title > p:first-of-type::first-letter {
   float: left;
   margin: 6px 6px 0 0;
-  font-size: 2em;
-  color: #ff5b40;
+  font-size: 4rem;
+  color: #d23719;
   font-weight: bold;
+  font-family: "Cartridge Rough";
 }
 
 /* Make images easier to work with */
