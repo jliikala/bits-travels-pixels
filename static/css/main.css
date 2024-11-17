@@ -52,7 +52,7 @@ body {
   text-rendering: optimizeLegibility;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family: var(--font-family-serif);
+  font-family: var(--font-family);
 }
 
 a {
@@ -112,7 +112,6 @@ body {
   padding: 0;
   background-color: var(--background-color);
   color: var(--text);
-  font-family: var(--font-family-serif);
 }
 
 p,
@@ -243,7 +242,7 @@ article ul li {
 .sidebar {
   grid-area: sidebar;
   margin-top: 1rem;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .footer {
@@ -359,7 +358,7 @@ div.sidebar-partial:last-of-type, div.post-preview:last-of-type {
   margin-top: 0;
   font-size: 20px;
   text-transform: uppercase;
-  margin-bottom: var(--spacing);
+  margin-bottom: var(--spacing)
 }
 
 .archive-categories {
