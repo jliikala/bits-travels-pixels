@@ -233,7 +233,10 @@ article ul li {
     gap: 3rem;
     max-width: 1320px;
     margin: 0 auto;
-    padding: 20px 0 20px 0;
+}
+
+.blog-container, .blog-header {
+  padding: 20px;
 }
 
 .container {
@@ -534,9 +537,6 @@ input:disabled, textarea:disabled {
           "posts"
           "sidebar";
       grid-template-columns: 1fr;
-  }
-  .blog-container, .blog-header {
-    padding: 20px;
   }
 
   .post-title, .post-header-meta .p-name {
