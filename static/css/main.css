@@ -295,13 +295,12 @@ input[type="text"] {
 
 .read-more a, button, input[type="submit"] {
   text-decoration: none;
-  color: var(--text);
   border: 1px solid var(--border-color);
   padding: 10px 30px;
   opacity: 0.8;
   cursor: pointer;
-  background-color: var(--btn-background);
-}
+  background-color: #d23719;
+  color: #fff;
 
 .read-more a {
   text-decoration: none !important;
