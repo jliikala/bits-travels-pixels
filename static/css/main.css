@@ -352,6 +352,11 @@ input[type="text"] {
   max-width: 100%;
 }
 
+.post-list .post-preview {
+  padding-bottom: 50px;
+  border-bottom: 1px dashed #bbb;
+}
+
 /* Sidebar */
 
 .sidebar, main .post-list {
