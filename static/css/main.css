@@ -6,7 +6,7 @@
   --btn-background: #e8e8e8;
   --post-bg: white;
   --font-family: "-apple-system",BlinkMacSystemFont,"helvetica neue",Helvetica,Arial,sans-serif;
-  --font-family-serif: "A Writer Quattro V", Georgia, "Times New Roman", "Palatino Linotype" "Book Antiqua", "Garamond", serif;
+  --font-family-serif: "iA Writer Quattro V", Georgia, "Times New Roman", "Palatino Linotype" "Book Antiqua", "Garamond", serif;
   --font-family-mono: "JetBrains Mono", "Fira Code", "Consolas", "Liberation Mono", "Menlo", "Courier New", monospace;
   --spacing: 1.5rem;
   --border-color: #cacaca;
@@ -350,10 +350,6 @@ div.sidebar-partial:last-of-type, div.post-preview:last-of-type {
 .single {
   background: var(--post-bg);
   box-shadow: var(--box-shadow-color) 0 6px 24px;
-}
-
-.e-content {
-  font-family: var(--font-family-serif);
 }
 
 .e-content p:last-child, .sidebar-partial p:last-child {
