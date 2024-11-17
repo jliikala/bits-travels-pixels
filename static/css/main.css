@@ -301,6 +301,7 @@ input[type="text"] {
   cursor: pointer;
   background-color: #d23719;
   color: #fff;
+  font-family: var(--font-family);
 
 .read-more a {
   text-decoration: none !important;
