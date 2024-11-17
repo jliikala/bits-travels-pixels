@@ -13,19 +13,6 @@
   --box-shadow-color: rgba(145,106,112,0.15);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #c6c6c6;
-    --link: var(--text);
-    --link-visited: #9f9f9f;
-    --background-color: #0f0f0f;
-    --btn-background: #0f0f0f;
-    --post-bg: #1e1e1e;
-    --border-color: #4f4f4f;
-    --box-shadow-color: transparent;
-  }
-}
-
 /* Set a solid baseline for styles with Andy Bell's modern CSS reset - https://piccalil.li/blog/a-modern-css-reset */
 
 /* Box sizing rules */
@@ -212,7 +199,6 @@ article ul li {
 
 .blog-container main {
   grid-area: posts;
-  margin-top: 4rem;
 }
 
 .sidebar {
@@ -235,12 +221,6 @@ article ul li {
 .profile-photo.u-photo {
   max-width: 100%;
   margin-bottom: 2rem;
-  position: absolute;
-  top: 240px;
-  width: 160px;
-  height: 160px;
-  padding: 10px;
-  background: var(--background-color);
 }
 
 .photos-grid-container {
@@ -489,9 +469,6 @@ input:disabled, textarea:disabled {
   }
   .blog-container {
     padding: 20px 0;
-  }
-  .blog-container main {
-    margin-top: 0;
   }
 
   .footer {
