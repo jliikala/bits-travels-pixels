@@ -198,6 +198,7 @@ article ul li {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0 auto;
 }
 
 .blog-header a {
@@ -254,6 +255,7 @@ article ul li {
   grid-area: content;
   align-items: flex-start;
   max-width: 1320px;
+  margin: 0 auto;
 }
 
 .blog-container main {
