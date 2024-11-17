@@ -6,6 +6,9 @@
     {{ $cover := index .Site.Data.covers $slug }}
   {{ end }}
   <body>
+    <header class="blog-header">
+      {{ partial "header.html" . }}
+    </header>
     <div class="blog-container">
       <div class="main-content">
         <main>
