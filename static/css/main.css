@@ -289,6 +289,11 @@ article ul li {
   margin: 0 auto;
 }
 
+.main-content .h-entry {
+  padding-bottom: 50px;
+  border-bottom: 1px dashed rgb(187, 187, 187);
+}
+
 .blog-container main {
   grid-area: posts;
   font-size: 20px;
