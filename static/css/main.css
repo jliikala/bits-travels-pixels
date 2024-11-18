@@ -84,8 +84,8 @@ a:not([class]):visited{
 
 a:not([class]):hover {
   text-decoration-thickness: 0.10rem;
-  color: #ff5b40;
-  border-color: #ff5b40;
+  color: #d23719;
+  border-color: #d23719;
 }
 
 .e-content > p:first-of-type::first-letter {
