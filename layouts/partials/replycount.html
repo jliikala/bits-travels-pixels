@@ -13,17 +13,17 @@
     // Find the .microblog_conversation element
     const conversationElement = document.querySelector(".microblog_conversation");
     if (conversationElement) {
-      // Create an h2 element for the comment count
+      // Create the <h2> element for the comment count
       let commentHeading = null;
       if (replyCount === 1) {
-        commentHeading = `<h3>1 comment</h3>`;
+        commentHeading = `<h3>1 reply</h3>`;
       } else if (replyCount > 1) {
-        commentHeading = `<h3>${replyCount} comments</h3>`;
+        commentHeading = `<h3>${replyCount} replies</h3>`;
       }
 
-      // Insert the heading before the .microblog_conversation element if there's a count
+      // Prepend the heading inside the .microblog_conversation element if there's a count
       if (commentHeading) {
-        conversationElement.insertAdjacentHTML("beforebegin", commentHeading);
+        conversationElement.insertAdjacentHTML("afterbegin", commentHeading);
       }
     } else {
       console.error(".microblog_conversation element not found.");
