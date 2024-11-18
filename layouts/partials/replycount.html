@@ -16,9 +16,9 @@
       // Create an h2 element for the comment count
       let commentHeading = null;
       if (replyCount === 1) {
-        commentHeading = `<h2>1 comment</h2>`;
+        commentHeading = `<h3>1 comment</h3>`;
       } else if (replyCount > 1) {
-        commentHeading = `<h2>${replyCount} comments</h2>`;
+        commentHeading = `<h3>${replyCount} comments</h3>`;
       }
 
       // Insert the heading before the .microblog_conversation element if there's a count
