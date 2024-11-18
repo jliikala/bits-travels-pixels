@@ -195,6 +195,7 @@ article ul li {
 
 .blog-header .inner {
   max-width: 1320px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -255,6 +256,7 @@ article ul li {
   grid-area: content;
   align-items: flex-start;
   max-width: 1320px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -278,6 +280,9 @@ article ul li {
   padding: 30px;
   font-size: 14px;
   border-color: var(--border-color);
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .profile-photo.u-photo {
