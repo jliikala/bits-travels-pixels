@@ -444,8 +444,8 @@ div.sidebar-partial:last-of-type, div.post-preview:last-of-type {
 }
 
 .post-date.u-url {
-  font-family: "Cartridge", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-family: var(--font-family-mono);
+  font-size: 14px;
   font-weight: normal;
   line-height: 1;
   text-transform: uppercase;
@@ -593,10 +593,6 @@ input:disabled, textarea:disabled {
 
   .post-title, .post-header-meta .p-name {
     font-size: 34px;
-  }
-
-  .post-date.u-url {
-    font-size: 14px;
   }
 
   .blog-header .inner {
