@@ -340,6 +340,10 @@ input[type="text"] {
   color: var(--text);
 }
 
+.read-more a:hover {
+  border: 1px solid var(--text);
+}
+
 .subscribe-form {
   margin-bottom: 1rem;
   display: flex;
