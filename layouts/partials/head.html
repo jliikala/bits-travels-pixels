@@ -27,8 +27,8 @@
   <title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else if .Title }}{{ .Title }} | {{ .Site.Title }}{{ else }}{{ delimit (split .Summary " " | first 5) " " }} … | {{ .Site.Title }}{{ end }}{{ end }}</title>
   <link rel="canonical" href="{{ .Permalink }}">
   <link rel="stylesheet" href="{{ "css/main.css" | relURL }}?{{ .Site.Params.theme_seconds }}">
+  <link rel="preload" href="{{ "/fonts/Cartridge-Regular.woff2" | relURL }}" as="font" type="font/woff2">
+  <link rel="preload" href="{{ "/fonts/Cartridge-Bold.woff2" | relURL }}" as="font" type="font/woff2">
+  <link rel="preload" href="{{ "/fonts/iAWriterMonoS-Regular.woff2" | relURL }}" as="font" type="font/woff2">
   {{ partial "microblog_head.html" . }}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
 </head>
