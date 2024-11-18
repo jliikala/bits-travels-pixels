@@ -1,0 +1,45 @@
+<script>
+  fetch("https://micro.blog/webmention?target=" + encodeURIComponent("{{ .Permalink }}"))
+    .then(response => {
+      if (response.ok) {
+        return response.json(); // Parse the response data as JSON
+      } else {
+        throw new Error('Failed to fetch webmentions');
+      }
+    })
+    .then(data => {
+      const postTitle = "{{ .Title | urlize }}";
+      const replyCount = Array.isArray(data.items) ? data.items.length : 0;
+
+      // Update HTML element with the reply count if it's greater than 0
+      const replyNumberElement = document.getElementById(`${postTitle}replyNumber`);
+      const repliesDivElement = document.querySelector('.replies');
+      if (replyNumberElement) {
+        if (replyCount > 0) {
+          replyNumberElement.innerHTML = ` ${replyCount}`;
+          replyNumberElement.style.display = 'inline'; // Show the element
+          if (repliesDivElement) {
+            repliesDivElement.style.display = 'block'; // Show the replies div
+          }
+          // Add text after the reply count based on the reply count
+          const text = replyCount === 1 ? '&nbsp;{{- $.Site.Params.reply_count_text_single }}' : '&nbsp;{{- $.Site.Params.reply_count_text_multiple }}';
+          replyNumberElement.insertAdjacentHTML('afterend', `<span>${text}</span>`);
+        } else {
+          replyNumberElement.style.display = 'none'; // Hide the element
+          if (repliesDivElement) {
+            repliesDivElement.style.display = 'none'; // Hide the replies div
+          }
+        }
+      } else {
+        console.error(`Element with id "${postTitle}replyNumber" not found.`);
+      }
+    })
+    .catch(error => {
+      // Handle any errors here
+      console.error('Error fetching webmentions:', error);
+    });
+</script>
+
+<div class="replies">
+  <div class="reply_count" style="display: inline-block;" id="{{ .Title | urlize }}replyNumber"></div>
+</div>

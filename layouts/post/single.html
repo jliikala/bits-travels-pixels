@@ -35,6 +35,7 @@
     {{ end }}
   </ul>
   {{ if .Site.Params.include_conversation }}
+  {{ partial "replycount.html" . }}
   <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
   {{ end }}
 {{ end }}
