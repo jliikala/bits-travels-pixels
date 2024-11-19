@@ -1,4 +1,5 @@
 <script>
+  console.log("https://micro.blog/webmention?target=" + encodeURIComponent("{{ .Permalink }}"));
   fetch("https://micro.blog/webmention?target=" + encodeURIComponent("{{ .Permalink }}"))
   .then(response => {
     if (response.ok) {

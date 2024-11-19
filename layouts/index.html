@@ -35,6 +35,7 @@
         <!-- Script to fetch comment count -->
         <script>
           (function() {
+						console.log("https://micro.blog/webmention?target=" + encodeURIComponent("{{ .Permalink }}"));
             const targetURL = encodeURIComponent("{{ .Permalink }}");
             fetch(`https://micro.blog/webmention?target=${targetURL}`)
               .then(response => {
