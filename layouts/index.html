@@ -36,8 +36,9 @@
         <script>
 					document.addEventListener("DOMContentLoaded", function() {
 						console.log("Script loaded");
-						console.log("Fetching URL: https://micro.blog/webmention?target=" + encodeURIComponent("{{ .Permalink }}"));
-						const targetURL = encodeURIComponent("{{ .Permalink }}");
+						const targetURL = encodeURIComponent("{{ .Permalink | safeJS }}"); // Ensure valid JavaScript string
+						console.log("Fetching URL: https://micro.blog/webmention?target=" + targetURL);
+
 						fetch(`https://micro.blog/webmention?target=${targetURL}`)
 							.then(response => {
 								if (response.ok) return response.json();
@@ -46,9 +47,10 @@
 							.then(data => {
 								console.log("Webmention data:", data);
 								const replyCount = Array.isArray(data.items) ? data.items.length : 0;
-								console.log("Reply count:", replyCount);
+
 								const sanitizedId = "comment-count-{{ .Permalink | urlize | replace '.' '-' | replace '/' '-' }}";
 								console.log("Sanitized ID:", sanitizedId);
+
 								const commentContainer = document.getElementById(sanitizedId);
 								if (commentContainer) {
 									if (replyCount === 1) {
