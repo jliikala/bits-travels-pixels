@@ -28,6 +28,34 @@
             {{ .Content }}
           </div>
         {{ end }}
+
+				<!-- Comment count container -->
+				<div class="comment-count" id="comment-count-{{ .File.Path | urlize }}"></div>
+
+				<!-- Script to fetch comment count -->
+				<script>
+					(function() {
+						const targetURL = encodeURIComponent("{{ .Permalink }}");
+						fetch(`https://micro.blog/webmention?target=${targetURL}`)
+							.then(response => {
+								if (response.ok) return response.json();
+								throw new Error("Failed to fetch webmentions");
+							})
+							.then(data => {
+								const replyCount = Array.isArray(data.items) ? data.items.length : 0;
+								const commentContainer = document.getElementById("comment-count-{{ .File.Path | urlize }}");
+								if (commentContainer) {
+									if (replyCount === 1) {
+										commentContainer.innerHTML = `<p>1 reply</p>`;
+									} else if (replyCount > 1) {
+										commentContainer.innerHTML = `<p>${replyCount} replies</p>`;
+									}
+								}
+							})
+							.catch(error => console.error("Error fetching webmentions:", error));
+					})();
+				</script>
+			</div>
       </div>
       {{ end }}
   </div>
