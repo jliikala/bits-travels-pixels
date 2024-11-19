@@ -16,9 +16,9 @@
       // Create the <h2> element for the comment count
       let commentHeading = null;
       if (replyCount === 1) {
-        commentHeading = `<h3>1 reply</h3>`;
+        commentHeading = `<h3>1 reply to "{{ .Title }}"</h3>`;
       } else if (replyCount > 1) {
-        commentHeading = `<h3>${replyCount} replies</h3>`;
+        commentHeading = `<h3>${replyCount} replies to "{{ .Title }}"</h3>`;
       }
 
       // Prepend the heading inside the .microblog_conversation element if there's a count
