@@ -36,7 +36,7 @@
   console.log("Script loaded");
 
   // Use raw .Permalink without escaping the slashes
-  const targetURL = encodeURIComponent("{{ .Permalink }}");
+  const targetURL = encodeURIComponent("{{ .Permalink | safeJS }}");
   console.log("Fetching URL: https://micro.blog/webmention?target=" + targetURL);
 
   fetch(`https://micro.blog/webmention?target=${targetURL}`)
