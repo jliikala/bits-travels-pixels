@@ -33,38 +33,38 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    console.log("Script loaded");
+  console.log("Script loaded");
 
-    const targetURL = encodeURIComponent("{{ .Permalink | safeJS }}");
-    console.log("Fetching URL: https://micro.blog/webmention?target=" + targetURL);
+  const targetURL = encodeURIComponent("{{ .Permalink | safeJS }}");
+  console.log("Fetching URL: https://micro.blog/webmention?target=" + targetURL);
 
-    fetch(`https://micro.blog/webmention?target=${targetURL}`)
-      .then(response => {
-        if (response.ok) return response.json();
-        throw new Error("Failed to fetch webmentions");
-      })
-      .then(data => {
-        console.log("Webmention data:", data);
-        const replyCount = Array.isArray(data.items) ? data.items.length : 0;
+  fetch(`https://micro.blog/webmention?target=${targetURL}`)
+    .then(response => {
+      if (response.ok) return response.json();
+      throw new Error("Failed to fetch webmentions");
+    })
+    .then(data => {
+      console.log("Webmention data:", data);
+      const replyCount = Array.isArray(data.items) ? data.items.length : 0;
 
-        const sanitizedId = "comment-count-{{ .Permalink | urlize | replace '.' '-' | replace '/' '-' }}";
-        console.log("Sanitized ID:", sanitizedId);
+      const sanitizedId = "comment-count-{{ .Permalink | urlize | replace '.' '-' | replace '/' '-' }}";
+      console.log("Sanitized ID:", sanitizedId);
 
-        const commentContainer = document.getElementById(sanitizedId);
-        if (commentContainer) {
-          if (replyCount === 1) {
-            commentContainer.innerHTML = `<p>1 reply to "{{ .Title }}"</p>`;
-          } else if (replyCount > 1) {
-            commentContainer.innerHTML = `<p>${replyCount} replies to "{{ .Title }}"</p>`;
-          } else {
-            commentContainer.innerHTML = `<p>No replies yet</p>`;
-          }
+      const commentContainer = document.getElementById(sanitizedId);
+      if (commentContainer) {
+        if (replyCount === 1) {
+          commentContainer.innerHTML = `<p>1 reply to &quot;{{ .Title }}&quot;</p>`;
+        } else if (replyCount > 1) {
+          commentContainer.innerHTML = `<p>${replyCount} replies to &quot;{{ .Title }}&quot;</p>`;
         } else {
-          console.error("Comment container not found for ID:", sanitizedId);
+          commentContainer.innerHTML = `<p>No replies yet</p>`;
         }
-      })
-      .catch(error => console.error("Error fetching webmentions:", error));
-  });
+      } else {
+        console.error("Comment container not found for ID:", sanitizedId);
+      }
+    })
+    .catch(error => console.error("Error fetching webmentions:", error));
+});
 </script>
 
       </div>
