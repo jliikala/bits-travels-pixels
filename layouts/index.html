@@ -43,16 +43,19 @@
               })
               .then(data => {
                 const replyCount = Array.isArray(data.items) ? data.items.length : 0;
-                const commentContainer = document.getElementById("comment-count-{{ .File.Path | urlize }}");
-                if (commentContainer) {
-                  if (replyCount === 1) {
-                    commentContainer.innerHTML = `<p>1 reply to "{{ .Title }}"</p>`;
-                  } else if (replyCount > 1) {
-                    commentContainer.innerHTML = `<p>${replyCount} replies to "{{ .Title }}"</p>`;
-                  } else {
-                    commentContainer.innerHTML = `<p>No replies yet</p>`;
-                  }
-                }
+                const sanitizedId = "comment-count-{{ .Permalink | urlize | replace '.' '-' | replace '/' '-' }}";
+								const commentContainer = document.getElementById(sanitizedId);
+
+								if (commentContainer) {
+									if (replyCount === 1) {
+										commentContainer.innerHTML = `<p>1 reply to "{{ .Title }}"</p>`;
+									} else if (replyCount > 1) {
+										commentContainer.innerHTML = `<p>${replyCount} replies to "{{ .Title }}"</p>`;
+									} else {
+										commentContainer.innerHTML = `<p>No replies yet</p>`;
+									}
+								}
+
               })
               .catch(error => console.error("Error fetching webmentions:", error));
           })();
