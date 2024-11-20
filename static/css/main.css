@@ -448,7 +448,7 @@ div.sidebar-partial:last-of-type, div.post-preview:last-of-type {
   text-decoration: none;
 }
 
-.post-date.u-url {
+.post-date.u-url, .comment-count {
   font-family: var(--font-family-mono);
   font-size: 14px;
   font-weight: normal;
