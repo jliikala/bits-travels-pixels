@@ -29,12 +29,13 @@
           </div>
         {{ end }}
 
-        <div class="comment-count" id="comment-count-{{ .Permalink | safeJS | replace ":" "-" | replace "/" "-" }}"></div>
+        <div class="comment-count" id="comment-count-{{ .Permalink | safeJS | replace ":" "-" | replace "/" "-" | replace "." "-" }}"></div>
+
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-  const targetURL = "{{ .Permalink | safeJS }}";
-  const sanitizedId = `comment-count-${(targetURL || '').replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+  const targetURL = "{{ .Permalink | safeJS }}"; // Example: "/"
+  const sanitizedId = `comment-count-${(targetURL || '').replace(/[:/.]/g, '-')}`; // Example: "comment-count--"
 
   const commentCountDiv = document.getElementById(sanitizedId);
   if (commentCountDiv) {
@@ -49,6 +50,7 @@
     console.warn("No matching element found for ID:", sanitizedId);
   }
 });
+
 
 </script>
 
