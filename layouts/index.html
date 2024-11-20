@@ -29,13 +29,14 @@
           </div>
         {{ end }}
 
-        <div class="comment-count" id="comment-count-{{ .Permalink | safeJS | replace ":" "-" | replace "/" "-" | replace "." "-" }}"></div>
+        <div class="comment-count" id="comment-count-{{ .Title | urlize }}"></div>
 
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
   const targetURL = "{{ .Permalink | safeJS }}"; // Example: "/"
-  const sanitizedId = `comment-count-${(targetURL || '').replace(/[:/.]/g, '-')}`; // Example: "comment-count--"
+  const targetTitle = "{{ .Title | urlize }}"
+  const sanitizedId = `comment-count-${(targetTitle)}`;
 
   const commentCountDiv = document.getElementById(sanitizedId);
   if (commentCountDiv) {
