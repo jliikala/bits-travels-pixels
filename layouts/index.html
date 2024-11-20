@@ -46,18 +46,7 @@
 								// Sanitize the ID for the comment container
 								const sanitizedId = "comment-count-{{ .Permalink }}";
 
-								const commentContainer = document.getElementById(sanitizedId);
-								if (commentContainer) {
-									if (replyCount === 1) {
-										commentContainer.innerHTML = `<p>1 reply to "{{ .Title }}"</p>`;
-									} else if (replyCount > 1) {
-										commentContainer.innerHTML = `<p>${replyCount} replies to "{{ .Title }}"</p>`;
-									} else {
-										commentContainer.innerHTML = `<p>No replies yet</p>`;
-									}
-								} else {
-									console.error("Comment container not found for ID:", sanitizedId);
-								}
+
 							})
 							.catch(error => console.error("Error fetching webmentions:", error));
           });
