@@ -1,37 +1,38 @@
 <script>
-  console.log("https://micro.blog/webmention?target=" + encodeURIComponent("{{ .Permalink }}"));
-  fetch("https://micro.blog/webmention?target=" + encodeURIComponent("{{ .Permalink }}"))
-  .then(response => {
-    if (response.ok) {
-      return response.json(); // Parse the response data as JSON
-    } else {
-      throw new Error("Failed to fetch webmentions");
-    }
-  })
-  .then(data => {
-    const replyCount = Array.isArray(data.items) ? data.items.length : 0;
-
-    // Find the .microblog_conversation element
-    const conversationElement = document.querySelector(".microblog_conversation");
-    if (conversationElement) {
-      // Create the <h2> element for the comment count
-      let commentHeading = null;
-      if (replyCount === 1) {
-        commentHeading = `<h3>1 reply to "{{ .Title }}"</h3>`;
-      } else if (replyCount > 1) {
-        commentHeading = `<h3>${replyCount} replies to "{{ .Title }}"</h3>`;
+  document.addEventListener("DOMContentLoaded", function() {
+    fetch("https://micro.blog/webmention?target=" + encodeURIComponent("{{ .Permalink }}"))
+    .then(response => {
+      if (response.ok) {
+        return response.json(); // Parse the response data as JSON
+      } else {
+        throw new Error("Failed to fetch webmentions");
       }
+    })
+    .then(data => {
+      const replyCount = Array.isArray(data.items) ? data.items.length : 0;
 
-      // Prepend the heading inside the .microblog_conversation element if there's a count
-      if (commentHeading) {
-        conversationElement.insertAdjacentHTML("afterbegin", commentHeading);
+      // Find the .microblog_conversation element
+      const conversationElement = document.querySelector(".microblog_conversation");
+      if (conversationElement) {
+        // Create the <h2> element for the comment count
+        let commentHeading = null;
+        if (replyCount === 1) {
+          commentHeading = `<h3>1 reply to "{{ .Title }}"</h3>`;
+        } else if (replyCount > 1) {
+          commentHeading = `<h3>${replyCount} replies to "{{ .Title }}"</h3>`;
+        }
+
+        // Prepend the heading inside the .microblog_conversation element if there's a count
+        if (commentHeading) {
+          conversationElement.insertAdjacentHTML("afterbegin", commentHeading);
+        }
+      } else {
+        console.error(".microblog_conversation element not found.");
       }
-    } else {
-      console.error(".microblog_conversation element not found.");
-    }
-  })
-  .catch(error => {
-    console.error("Error fetching webmentions:", error);
+    })
+    .catch(error => {
+      console.error("Error fetching webmentions:", error);
+    });
   });
 </script>
 
