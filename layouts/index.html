@@ -8,6 +8,7 @@
           <a href="{{ .Permalink }}" class="post-date u-url">
             <time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "January 2, 2006" }}</time>
           </a>
+          <span class="comment-count" id="comment-count-{{ .Title | urlize }}"></span>
           <h2 class="post-title p-name"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
         </header>
         {{ if in .RawContent "<!--more-->" }}
@@ -29,36 +30,32 @@
           </div>
         {{ end }}
 
-        <div class="comment-count" id="comment-count-{{ .Title | urlize }}"></div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+          const targetURL = "{{ .Permalink | safeJS }}"; // Example: "/"
+          const targetTitle = "{{ .Title | urlize }}"
+          const sanitizedId = `comment-count-${(targetTitle)}`;
 
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-  const targetURL = "{{ .Permalink | safeJS }}"; // Example: "/"
-  const targetTitle = "{{ .Title | urlize }}"
-  const sanitizedId = `comment-count-${(targetTitle)}`;
-
-  const commentCountDiv = document.getElementById(sanitizedId);
-  if (commentCountDiv) {
-    fetch(`https://micro.blog/webmention?target=${encodeURIComponent(targetURL)}`)
-      .then(response => response.json())
-      .then(data => {
-        const replyCount = Array.isArray(data.items) ? data.items.length : 0;
-        commentCountDiv.textContent = replyCount;
-      })
-      .catch(error => console.error("Error fetching webmentions:", error));
-  } else {
-    console.warn("No matching element found for ID:", sanitizedId);
-  }
-});
-
-
-</script>
-
-
-
-
-
+          const commentCountDiv = document.getElementById(sanitizedId);
+          if (commentCountDiv) {
+            fetch(`https://micro.blog/webmention?target=${encodeURIComponent(targetURL)}`)
+              .then(response => response.json())
+              .then(data => {
+                const replyCount = Array.isArray(data.items) ? data.items.length : 0;
+                if (replyCount === 1) {
+                  commentCountDiv.innerHTML = `<p>1 reply to "{{ .Title }}"</p>`;
+                } else if (replyCount > 1) {
+                  commentContainer.innerHTML = `<p>${replyCount} replies to "{{ .Title }}"</p>`;
+                } else {
+                  commentCountDiv.innerHTML = `<p>No replies yet</p>`;
+                }
+              })
+              .catch(error => console.error("Error fetching webmentions:", error));
+          } else {
+            console.warn("No matching element found for ID:", sanitizedId);
+          }
+        });
+        </script>
       </div>
       {{ end }}
   </div>
