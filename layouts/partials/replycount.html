@@ -15,12 +15,14 @@
       const conversationElement = document.querySelector(".microblog_conversation");
       if (conversationElement) {
         // Create the <h2> element for the comment count
-        let commentHeading = null;
-        if (replyCount === 1) {
-          commentHeading = `<h3>1 reply to "{{ .Title | safeJS }}"</h3>`;
-        } else if (replyCount > 1) {
-          commentHeading = `<h3>${replyCount} replies to "{{ .Title | safeJS }}"</h3>`;
-        }
+          const pageTitle = "{{ .Title | safeJS }}";
+
+          let commentHeading;
+          if (replyCount === 1) {
+            commentHeading = `<h3>1 reply to "${pageTitle}"</h3>`;
+          } else if (replyCount > 1) {
+            commentHeading = `<h3>${replyCount} replies to "${pageTitle}"</h3>`;
+          }
 
         // Prepend the heading inside the .microblog_conversation element if there's a count
         if (commentHeading) {
