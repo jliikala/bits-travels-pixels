@@ -33,9 +33,13 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // Use safeJS to avoid escaping issues with .Permalink
+    // Use safeJS to ensure .Permalink doesn't break the JavaScript
     const targetURL = "{{ .Permalink | safeJS }}";
 
+    // Log the targetURL for debugging purposes
+    console.log("Target URL:", targetURL);
+
+    // Encode the URL for safe usage in the fetch call
     fetch(`https://micro.blog/webmention?target=${encodeURIComponent(targetURL)}`)
       .then(response => {
         if (response.ok) return response.json();
@@ -56,6 +60,7 @@
       .catch(error => console.error("Error fetching webmentions:", error));
   });
 </script>
+
 
 
 
