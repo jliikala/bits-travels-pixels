@@ -29,40 +29,27 @@
           </div>
         {{ end }}
 
-        <div class="comment-count" id="comment-count-{{ .Permalink | urlize }}"></div>
+        <div class="comment-count" id="comment-count-{{ .Permalink | safeJS | replace ":" "-" | replace "/" "-" }}"></div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // Use safeJS to ensure .Permalink doesn't break the JavaScript
-    const targetURL = "{{ .Permalink | safeJS }}";
+  const targetURL = "{{ .Permalink | safeJS }}";
+  const sanitizedId = `comment-count-${(targetURL || '').replace(/[^a-zA-Z0-9_-]/g, '-')}`;
 
-    // Debug the targetURL
-    console.log("Target URL:", targetURL);
-
-    // Encode the URL for the fetch call
+  const commentCountDiv = document.getElementById(sanitizedId);
+  if (commentCountDiv) {
     fetch(`https://micro.blog/webmention?target=${encodeURIComponent(targetURL)}`)
-      .then(response => {
-        if (response.ok) return response.json();
-        throw new Error("Failed to fetch webmentions");
-      })
+      .then(response => response.json())
       .then(data => {
         const replyCount = Array.isArray(data.items) ? data.items.length : 0;
-
-        // Debugging sanitizedId
-        console.log("Sanitizing ID with targetURL:", targetURL);
-
-        // Sanitize the ID for the comment container
-        const sanitizedId = `comment-count-${(targetURL || '').replace(/[^a-zA-Z0-9_-]/g, '-')}`;
-        console.log("Sanitized ID:", sanitizedId);
-
-        // Update the comment count in the div
-        const commentCountDiv = document.getElementById(sanitizedId);
-        if (commentCountDiv) {
-          commentCountDiv.textContent = replyCount;
-        }
+        commentCountDiv.textContent = replyCount;
       })
       .catch(error => console.error("Error fetching webmentions:", error));
-  });
+  } else {
+    console.warn("No matching element found for ID:", sanitizedId);
+  }
+});
+
 </script>
 
 
