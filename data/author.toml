@@ -1,0 +1,12 @@
+# site.toml
+
+name = "Juha Liikala"
+name_short = "Juha"
+description_alt = "Been tinkering with websites and software professionally since the early 2000's. A passionate traveler. Enjoy sci-fi and horror movies. Also, a fan of synthwave and Blade Runner-style musical landscapes."
+description_extra = "Also, a Finnish web developer, designer, blogger and founder of tiny digital product studio called Stripped Bare Studios. I've been building websites, products & software for a living since 2001."
+threads_url = "https://www.threads.net/@juhaliikala"
+instagram_url = "https://www.instagram.com/juhaliikala/"
+microblog_url = "https://micro.blog/juha"
+mastodon_url = "https://moth.social/@juha"
+bluesky_url = "https://bsky.app/profile/juhaliikala.com"
+fediverse_username = "@juha@juhaliikala.com"
