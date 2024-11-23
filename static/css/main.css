@@ -574,6 +574,42 @@ input:disabled, textarea:disabled {
   opacity: 0.6;
 }
 
+.reply-buttons {
+  list-style: none;
+  border-top: 1px dashed;
+  background-color: var(--bg-light);
+  padding: 3rem;
+  margin-bottom: 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.reply-buttons li {
+  display: inline-flex;
+  white-space: nowrap;
+  flex-wrap: wrap;
+}
+
+.reply-buttons .reply-on {
+  margin-left: auto;
+}
+
+.reply-buttons button, .reply-buttons a, .microblog_reply_button input {
+  vertical-align: baseline;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  border-radius: 5px;
+  border: 1px solid var(--text-light);
+  background: none;
+  color: var(--text-light);
+  -webkit-appearance: none;
+  appearance: none;
+  font-weight: normal;
+  cursor: pointer;
+}
+
 @media (max-width: 1200px) {
   .blog-container main {
     font-size: 18px;
